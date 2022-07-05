@@ -26,7 +26,8 @@ def sql_item_single():
     cin_id = 链上起始ID
     art_id = 作品ID
     for index in range(数量):
-        hex_id = hex(sql_id).lstrip('0x').upper().zfill(3)
+        sub_id = index+1
+        hex_id = hex(sub_id).lstrip('0x').upper().zfill(3)
         # print(hex_id)
         number = f'{开物编号}{hex_id}'
         nft_id = f'{链上ID}{cin_id}'
