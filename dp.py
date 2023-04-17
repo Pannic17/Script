@@ -1,3 +1,6 @@
+import cv2
+
+
 def dp():
     percent = 0.2
     kw_amount = [500, 2000, 1000, 2000, 2000, 800, 2000]
@@ -11,5 +14,9 @@ def dp():
     print(total / 50)
 
 
+def cv_test():
+    print(cv2.ADAPTIVE_THRESH_GAUSSIAN_C)
+
+
 if __name__ == '__main__':
-    dp()
+    cv_test()
