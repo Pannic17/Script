@@ -14,28 +14,29 @@ class person:
                 self.people[i] = 0
 
     def print(self):
-        print("####################")
+        print("################################")
         print(self.name)
-        print("--------------------")
-        print("* PAID: " + str(float(self.paid)))
+        print("--------------------------------")
+        print("* PAID: " + float_to_str(self.paid))
         for i in self.paid_list:
-            print("  " + i.name.ljust(30) + ": " + str(float(self.paid_list[i])).rjust(8))
-        print("--------------------")
-        print("* SUBS: " + str(float(self.involved)))
+            print("  " + i.name.ljust(20) + ": " + float_to_str(self.paid_list[i]))
+        print("--------------------------------")
+        print("* SUBS: " + float_to_str(self.involved))
         for i in self.involved_list:
-            print("  " + i.name.ljust(30) + ": " + str(float(self.involved_list[i])).rjust(8))
-        print("--------------------")
-        print("*TOTAL: " + str(float(self.subtotal)))
-        print("--------------------")
-        print("<<<GET<<<")
+            print("  " + i.name.ljust(20) + ": " + float_to_str(self.involved_list[i]))
+        print("--------------------------------")
+        print("*TOTAL: " + float_to_str(self.subtotal))
+        print("--------------------------------")
+        print("<<<收<<<")
         for i in self.people:
             if self.people[i] > 0:
-                print(i.name + "<<< " + str(float(self.people[i])).rjust(8))
-        print(">>>PAY>>>")
+                print(i.name.ljust(18) + " <<< " + float_to_str(self.people[i]))
+        print(">>>支>>>")
         for i in self.people:
             if self.people[i] < 0:
-                print(i.name + ">>> " + str(float(-self.people[i])).rjust(8))
-        print("####################")
+                print(i.name.ljust(18) + " >>> " + float_to_str(-self.people[i]))
+        print("################################")
+        print("\n")
 
 
 class event:
@@ -59,18 +60,22 @@ class event:
                 self.paid_person.people[i] += self.each
 
     def print(self):
-        print("####################")
+        print("################################")
         print(self.name)
-        print("--------------------")
-        print("付款: " + self.paid_person.name)
-        print("金额: " + str(self.amount))
-        print("人均: " + str(self.each))
-        print("--------------------")
-        print("Involved people: ", end="")
+        print("付款@" + self.paid_person.name)
+        print("--------------------------------")
+        print("金额: " + float_to_str(self.amount))
+        print("人均: " + float_to_str(self.each))
+        print("--------------------------------")
+        print("参与人: ", end="")
         for i in self.involved_people:
             print(i.name, end=",")
         print(".")
-        print("####################")
+        print("################################")
+
+
+def float_to_str(num):
+    return format(float(num), '.2f').rjust(8)
 
 
 if __name__ == '__main__':
